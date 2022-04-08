@@ -1,0 +1,33 @@
+{
+  "name": "my-vue-app",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "serve": "cross-env VUE_APP_LOCAL_ENV=true NODE_ENV=sit vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "cross-env": "^7.0.3",
+    "sass": "^1.49.9",
+    "vant": "^3.4.6",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.14"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.2.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.15.1",
+    "prettier": "^2.3.2",
+    "vite": "^2.8.0",
+    "vite-plugin-eslint": "^1.3.0",
+    "vite-plugin-style-import": "1.4.1",
+    "mockjs": "^1.1.0",
+    "vite-plugin-mock": "^2.9.6"
+  }
+}
