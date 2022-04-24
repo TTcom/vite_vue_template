@@ -41,7 +41,7 @@
 </template>
 
 <script setup>
-import { reactive } from "vue"
+// import { reactive } from "vue"
 import { useRouter } from "vue-router"
 let goods = reactive({
   title: "美国伽力果（约680g/3个）",

@@ -5,6 +5,7 @@ module.exports = {
       "browser": true
     },
     extends: [
+      'vue-global-api',
       'plugin:vue/vue3-essential',
       'eslint:recommended',
       'prettier',
@@ -16,5 +17,7 @@ module.exports = {
       ecmaVersion: 2017
     },
     "rules": {
+      "no-undef":"off",
+      "no-const-assign":"off"
     },
   }

@@ -51,7 +51,7 @@ export default class CustomAxiosInstance {
     )
     this.instance.interceptors.response.use(
       async response => {
-        const { status,data } = response
+        const { status, data } = response
         if (status === 200 || status < 300 || status === 304) {
           //   const backend = response.data;
           //   const { codeKey, dataKey, successCode } = this.backendConfig

@@ -10,10 +10,10 @@
 <script setup>
 import { ref } from "vue"
 import { mockRequest } from "../serve/index"
-const checked = ref(false)
+const checked = $ref(false)
 const onClickLink = () => window.$toast("点击按钮")
 const onSubmit = () => {
-  if (!checked.value) {
+  if (!checked) {
     window.$toast("没有勾选全选")
     return
   }
