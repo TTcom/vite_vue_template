@@ -41,8 +41,6 @@
 </template>
 
 <script setup>
-// import { reactive } from "vue"
-import { useRouter } from "vue-router"
 let goods = reactive({
   title: "美国伽力果（约680g/3个）",
   price: 2680,
@@ -55,6 +53,7 @@ function formatPrice() {
   return "¥" + (goods.price / 100).toFixed(2)
 }
 function onClickCart() {
+  console.log(router)
   router.push("/orderDetail")
 }
 function sorry() {

@@ -25,9 +25,16 @@
 }
 </route>
 <script setup>
+useHead({
+  title: "goodlist",
+  meta: [{ name: "description", content: "goodlistcontent" }],
+})
 const active = ref(0)
 const number = ref(1)
-const onChange = index => window.$toast(`标签 ${index}`)
+const onChange = index => {
+  console.log(index)
+  window.$toast(`标签 ${index}`)
+}
 const addNum = () => {
   number.value++
 }

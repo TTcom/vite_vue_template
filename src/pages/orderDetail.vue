@@ -8,7 +8,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
 import { mockRequest } from "../serve/index"
 const checked = $ref(false)
 const onClickLink = () => window.$toast("点击按钮")
