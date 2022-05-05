@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { mockRequest } from "../serve/index"
+import Api from "~/api"
 const checked = $ref(false)
 const onClickLink = () => window.$toast("点击按钮")
 const onSubmit = () => {
@@ -16,7 +16,7 @@ const onSubmit = () => {
     window.$toast("没有勾选全选")
     return
   }
-  mockRequest.post("/submit/order", {}).then(res => {
+ Api.submitOrder().then(res => {
     console.log(res)
     if (res.code == 200) {
       window.$toast("下单成功")

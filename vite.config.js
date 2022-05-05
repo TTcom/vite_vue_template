@@ -18,7 +18,7 @@ export default defineConfig({
   },
   plugins: [
     vue({
-      include: [/\.vue$/, /\.md$/],
+    include: [/\.vue$/, /\.md$/],
     reactivityTransform: true,}),
     eslintPlugin({fix:true}),
     styleImport({

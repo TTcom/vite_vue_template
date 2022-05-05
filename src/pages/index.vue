@@ -1,6 +1,5 @@
 <template>
   <div class="goodList">
-    <!-- <router-link to="/blog"> blog </router-link> | -->
     <van-card @click="goDetail" v-for="item in 10" :key="item" :num="number" price="2.00" desc="描述信息" title="商品标题" thumb="https://cdn.jsdelivr.net/npm/@vant/assets/ipad.jpeg">
       <template #tags>
         <van-tag plain type="primary">限量款</van-tag>

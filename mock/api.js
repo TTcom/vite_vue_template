@@ -1,3 +1,4 @@
 
 import auth from './auth';
-export default [...auth];
+import goods from './goods';
+export default [...auth,...goods];

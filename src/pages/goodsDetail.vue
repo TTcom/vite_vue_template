@@ -53,7 +53,6 @@ function formatPrice() {
   return "¥" + (goods.price / 100).toFixed(2)
 }
 function onClickCart() {
-  console.log(router)
   router.push("/orderDetail")
 }
 function sorry() {
