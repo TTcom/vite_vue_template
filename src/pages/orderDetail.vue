@@ -16,7 +16,7 @@ const onSubmit = () => {
     window.$toast("没有勾选全选")
     return
   }
- Api.submitOrder().then(res => {
+  Api.submitOrder().then(res => {
     console.log(res)
     if (res.code == 200) {
       window.$toast("下单成功")

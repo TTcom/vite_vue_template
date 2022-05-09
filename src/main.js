@@ -4,6 +4,7 @@ import "./utils/vant_tip.js"
 import { createHead } from "@vueuse/head"
 import { createRouter, createWebHashHistory } from "vue-router"
 import routes from "~pages"
+import Starport from "vue-starport"
 import "./assets/common.scss"
 console.log("AA", routes)
 const router = createRouter({
@@ -16,4 +17,5 @@ const head = createHead()
 
 app.use(head)
 app.use(router)
+app.use(Starport({ keepAlive: true }))
 app.mount("#app")

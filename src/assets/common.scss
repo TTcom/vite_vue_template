@@ -2,3 +2,18 @@
     height: 100vh;
     width: 100vw;
 }
+.page-fade-enter-active,
+.page-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.page-fade-enter-from,
+.page-fade-leave-to {
+  opacity: 0;
+}
+// [data-starport-craft] {
+//   background: #0805;
+// }
+// [data-starport-proxy]:not([data-starport-landed]) {
+//   background: #8005;
+// }

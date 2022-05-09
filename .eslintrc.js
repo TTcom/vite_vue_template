@@ -5,7 +5,6 @@ module.exports = {
       "browser": true
     },
     extends: [
-      'vue-global-api',
       'plugin:vue/vue3-essential',
       'eslint:recommended',
       'prettier',
@@ -18,6 +17,7 @@ module.exports = {
     },
     "rules": {
       "no-undef":"off",
+      "vue/no-setup-props-destructure":"off",
       "no-const-assign":"off"
     },
   }

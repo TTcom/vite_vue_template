@@ -33,7 +33,7 @@ export default defineConfig({
     // https://github.com/hannoeru/vite-plugin-pages
     Pages({
       extensions: ['vue', 'md'],
-      syncIndex: false,
+      syncIndex: false
     }),
     viteMockServe({
       mockPath: 'mock',
