@@ -1,10 +1,10 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import styleImport, { VantResolve } from 'vite-plugin-style-import';
+import styleImport, { VantResolve,ElementPlusResolve } from 'vite-plugin-style-import';
 import eslintPlugin from 'vite-plugin-eslint';
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import {VantResolver} from 'unplugin-vue-components/resolvers'
+import {VantResolver,ElementPlusResolver} from 'unplugin-vue-components/resolvers'
 import Pages from 'vite-plugin-pages'
 import path from 'path'
 console.log("process.envvvvvv",process.env)
@@ -22,11 +22,12 @@ export default defineConfig({
     reactivityTransform: true,}),
     eslintPlugin({fix:true}),
     styleImport({
-      resolves: [VantResolve()],
+      resolves: [ElementPlusResolve(),VantResolve()],
     }),
     Components({
       resolvers: [
-        VantResolver()
+        VantResolver(),
+        ElementPlusResolver()
       ],
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/]
     }),
@@ -43,7 +44,8 @@ export default defineConfig({
       `,
     }),
     AutoImport({ 
-      imports: ['vue','vue-router','@vueuse/head'] })
+      imports: ['vue','vue-router','@vueuse/head'] 
+    })
   ],
   build:{
     target:['edge90','chrome90','firefox90','safari15']

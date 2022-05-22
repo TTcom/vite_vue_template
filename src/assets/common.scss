@@ -1,6 +1,6 @@
-#app{
-    height: 100vh;
-    width: 100vw;
+html,body,#app{
+    height: 100%;
+    width: 100%;
 }
 .page-fade-enter-active,
 .page-fade-leave-active {
@@ -11,6 +11,10 @@
 .page-fade-leave-to {
   opacity: 0;
 }
+.mt10{
+  margin-top: 10px;
+}
+
 // [data-starport-craft] {
 //   background: #0805;
 // }
