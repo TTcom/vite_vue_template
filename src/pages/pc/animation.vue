@@ -94,7 +94,6 @@ const fourrandomize = () => {
   font-weight: 300;
   aspect-ratio: 1;
   border: 1px solid #cbcbcb;
-  border: 1px solid #cbcbcb;
 }
 .dropwer {
   padding: 10px;

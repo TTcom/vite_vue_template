@@ -1,7 +1,7 @@
 
-const token= {
-  token: '__TEMP_TOKEN__'
-};
+// const token= {
+//   token: '__TEMP_TOKEN__'
+// };
 
 const apis= [
  // 获取用户信息(请求头携带token)

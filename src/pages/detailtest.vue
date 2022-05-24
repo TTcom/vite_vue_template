@@ -13,11 +13,9 @@
   top: 0;
   left: 0.1px;
   width: 200px;
-  transition: all .8s;
+  transition: all 0.8s;
 }
 .rounded {
-  width: 200px;
-   height: 200px;
   border-radius: 50%;
   overflow: hidden;
 }

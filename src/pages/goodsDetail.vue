@@ -1,11 +1,10 @@
 <template>
   <div class="goodsDetail">
-    <van-swipe class="goods-swipe" :autoplay="3000">
-      <van-swipe-item v-for="thumb in goods.thumb" :key="thumb">
-        <img :src="thumb" />
-      </van-swipe-item>
-    </van-swipe>
-
+    <div class="detail_top">
+      <Starport :port="String(imgArrIndex)" class="astarport">
+        <aboutImge class="onaboutimg" :src="imgArr[imgArrIndex].img" />
+      </Starport>
+    </div>
     <van-cell-group>
       <van-cell>
         <div class="goods-title">{{ goods.title }}</div>
@@ -41,6 +40,7 @@
 </template>
 
 <script setup>
+import { imgArr, imgArrIndex } from "~/store"
 let goods = reactive({
   title: "美国伽力果（约680g/3个）",
   price: 2680,
@@ -61,6 +61,23 @@ function sorry() {
 </script>
 
 <style lang="scss">
+.detail_top {
+  width: 200px;
+  height: 200px;
+}
+.astarport {
+  height: 200px;
+  position: absolute;
+  top: 0;
+  left: 0.1px;
+  right: 0.1px;
+  width: 200px;
+  transition: all 0.8s;
+}
+.onaboutimg {
+  border-radius: 50%;
+  overflow: hidden;
+}
 body {
   font-size: 16px;
   background-color: #f8f8f8;

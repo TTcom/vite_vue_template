@@ -1,8 +1,10 @@
 <template>
   <StarportCarrier>
-    <RouterView v-slot="{ Component }">
+    <RouterView v-slot="{ Component, route }">
       <transition name="page-fade">
-        <component :is="Component" />
+        <div :key="route.name">
+          <component :is="Component" />
+        </div>
       </transition>
     </RouterView>
   </StarportCarrier>

@@ -1,9 +1,9 @@
 import { mockRequest } from "../serve/index"
 export default {
-  submitOrder(params) {
+  getGoodList(params) {
     return mockRequest.post("/good/list", params)
   },
-  getGoodList(params) {
+  submitOrder(params) {
     return mockRequest.post("/submit/order", params)
   },
 }

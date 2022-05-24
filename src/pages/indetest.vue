@@ -10,16 +10,16 @@
 </template>
 <style>
 .istarport {
-  height: 200px;
-  width: 200px;
+  height: 100px;
+  width: 100px;
   position: absolute;
   top: 0;
   left: 0;
-  transition: all .8s;
+  transition: all 0.8s;
 }
 .onaboutimg {
-  width: 200px;
-   height: 200px;
+  width: 100px;
+  height: 100px;
   border-radius: 10px;
   overflow: hidden;
 }

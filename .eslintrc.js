@@ -18,6 +18,7 @@ module.exports = {
     "rules": {
       "no-undef":"off",
       "vue/no-setup-props-destructure":"off",
-      "no-const-assign":"off"
+      "no-const-assign":"off",
+      "no-import-assign":"off",
     },
   }
