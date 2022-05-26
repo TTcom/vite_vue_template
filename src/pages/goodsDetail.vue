@@ -1,8 +1,8 @@
 <template>
   <div class="goodsDetail">
     <div class="detail_top">
-      <Starport :port="String(imgArrIndex)" class="astarport">
-        <aboutImge class="onaboutimg" :src="imgArr[imgArrIndex].img" />
+      <Starport :port="String(imgState.imgArrIndex)" class="astarport">
+        <aboutImge class="onaboutimg" :src="imgState.imgArr[imgState.imgArrIndex].img" />
       </Starport>
     </div>
     <van-cell-group>
@@ -40,7 +40,9 @@
 </template>
 
 <script setup>
-import { imgArr, imgArrIndex } from "~/store"
+// import { imgArr, imgArrIndex } from "~/store/little"
+import { useImgStore } from "~/store"
+const imgState = useImgStore()
 let goods = reactive({
   title: "美国伽力果（约680g/3个）",
   price: 2680,
@@ -69,12 +71,15 @@ function sorry() {
   height: 200px;
   position: absolute;
   top: 0;
-  left: 0.1px;
-  right: 0.1px;
+  left: 0px;
+  right: 0;
   width: 200px;
+      margin: auto;
   transition: all 0.8s;
 }
 .onaboutimg {
+  height: 200px;
+  width: 200px;
   border-radius: 50%;
   overflow: hidden;
 }

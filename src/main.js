@@ -1,5 +1,6 @@
 import { createApp } from "vue"
 import App from "./App.vue"
+import { setupPinia } from "./store"
 import "./utils/vant_tip.js"
 import { createHead } from "@vueuse/head"
 import { createRouter, createWebHashHistory } from "vue-router"
@@ -13,6 +14,7 @@ import "swiper/css"
 import "swiper/css/pagination"
 import "swiper/css/navigation"
 import * as ElementPlusIconsVue from "@element-plus/icons-vue"
+
 console.log("AA", routes)
 const app = createApp(App)
 const head = createHead()
@@ -20,7 +22,7 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes,
 })
-
+setupPinia(app)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }

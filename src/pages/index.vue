@@ -1,6 +1,6 @@
 <template>
   <div class="goodList">
-    <van-card @click="goDetail(index)" v-for="(item, index) in imgArr" :key="item" :num="number" :price="item.price.toFixed(2)" :title="item.name">
+    <van-card @click="goDetail(index)" v-for="(item, index) in imgState.imgArr" :key="item" :num="number" :price="item.price.toFixed(2)" :title="item.name">
       <template #thumb>
         <div class="index_top">
           <Starport :port="String(index)" class="indexastarport" @click="goDetail(index)">
@@ -28,31 +28,33 @@
 </route>
 <script setup>
 import Api from "~/api"
-import { imgArr, imgArrIndex } from "~/store"
+import { useImgStore } from "~/store"
 useHead({
   title: "goodlist",
   meta: [{ name: "description", content: "goodlistcontent" }],
 })
-
 const active = ref(0)
 const number = $ref(1)
-if (!imgArr.value || !imgArr.value.length) {
+const imgState = useImgStore()
+
+if (!imgState.imgArr.length) {
   Api.getGoodList().then(res => {
     console.log("Res", res)
-
-    imgArr.value = res.data
+    imgState.setImgArr(res.data)
   })
 }
+
 const onChange = index => {
-  console.log(index)
   window.$toast(`标签 ${index}`)
 }
+
 const addNum = () => {
   number++
 }
+
 const router = useRouter()
 function goDetail(index) {
-  imgArrIndex.value = index
+  imgState.setImgArrIndex(index)
   router.push("/goodsDetail")
 }
 </script>
@@ -67,6 +69,8 @@ function goDetail(index) {
   transition: all 0.8s;
 }
 .onindeximg {
+  height: 88px;
+  width: 88px;
   border-radius: 10px;
   overflow: hidden;
 }
