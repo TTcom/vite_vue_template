@@ -27,7 +27,7 @@ const apis= [
         return {
           code: 200,
           message: 'ok',
-          data: token,
+          data: null,
         };
       },
     },

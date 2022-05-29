@@ -2,7 +2,7 @@
   <div class="goodsDetail">
     <div class="detail_top">
       <Starport :port="String(imgState.imgArrIndex)" class="astarport">
-        <aboutImge class="onaboutimg" :src="imgState.imgArr[imgState.imgArrIndex].img" />
+        <aboutImge class="onaboutimg" :src="imgState.imgUrl" />
       </Starport>
     </div>
     <van-cell-group>
@@ -40,9 +40,9 @@
 </template>
 
 <script setup>
-// import { imgArr, imgArrIndex } from "~/store/little"
 import { useImgStore } from "~/store"
 const imgState = useImgStore()
+console.log("IIIIIIIIIIIII", imgState.imgArrIndex)
 let goods = reactive({
   title: "美国伽力果（约680g/3个）",
   price: 2680,
@@ -55,7 +55,7 @@ function formatPrice() {
   return "¥" + (goods.price / 100).toFixed(2)
 }
 function onClickCart() {
-  router.push("/orderDetail")
+  router.push("/phone/orderDetail")
 }
 function sorry() {
   window.$toast("暂无后续逻辑~")
@@ -68,13 +68,14 @@ function sorry() {
   height: 200px;
 }
 .astarport {
+  //starport的样式必须要全局的
   height: 200px;
   position: absolute;
   top: 0;
   left: 0px;
   right: 0;
   width: 200px;
-      margin: auto;
+  margin: auto;
   transition: all 0.8s;
 }
 .onaboutimg {
@@ -83,12 +84,6 @@ function sorry() {
   border-radius: 50%;
   overflow: hidden;
 }
-body {
-  font-size: 16px;
-  background-color: #f8f8f8;
-  -webkit-font-smoothing: antialiased;
-}
-
 .goods {
   padding-bottom: 50px;
 

@@ -59,10 +59,28 @@ let refresh = () => {
   padding: 15px;
   box-sizing: border-box;
   .motion_box {
-    width: 60px;
-    height: 60px;
-    background-color: rgb(118, 238, 154);
-    margin: auto;
+    position: relative;
+    width: 50px;
+    height: 40px;
+    margin:30px auto;
+  }
+  .motion_box:before,
+  .motion_box:after {
+    position: absolute;
+    content: "";
+    left: 25px;
+    top: 0;
+    width: 25px;
+    height: 40px;
+    background: red;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+  .motion_box:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
   }
   .bt_refresh {
     position: absolute;

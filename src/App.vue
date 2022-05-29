@@ -2,7 +2,7 @@
   <StarportCarrier>
     <RouterView v-slot="{ Component, route }">
       <transition name="page-fade">
-        <div :key="route.name">
+        <div class="app_vue" :key="route.name">
           <component :is="Component" />
         </div>
       </transition>

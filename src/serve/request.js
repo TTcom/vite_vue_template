@@ -1,5 +1,4 @@
-// import { ref } from 'vue';
-// import { useLoading, useBoolean } from '@/hooks';
+
 import CustomAxiosInstance from "./instance"
 
 /**
@@ -8,14 +7,7 @@ import CustomAxiosInstance from "./instance"
 export function createRequest(axiosConfig, backendConfig) {
   const customInstance = new CustomAxiosInstance(axiosConfig, backendConfig)
 
-  /**
-   * 异步promise请求
-   * @param param - 请求参数
-   * - url: 请求地址
-   * - method: 请求方法(默认get)
-   * - data: 请求的body的data
-   * - axiosConfig: axios配置
-   */
+
   async function asyncRequest(param) {
     const { url } = param
     const method = param.method || "get"
@@ -25,11 +17,7 @@ export function createRequest(axiosConfig, backendConfig) {
     return res
   }
 
-  /**
-   * get请求
-   * @param url - 请求地址
-   * @param config - axios配置
-   */
+
   function get(url, config) {
     return asyncRequest({ url, method: "get", axiosConfig: config })
   }
