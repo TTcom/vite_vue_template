@@ -7,6 +7,7 @@ import Components from 'unplugin-vue-components/vite'
 import {VantResolver,ElementPlusResolver} from 'unplugin-vue-components/resolvers'
 import Pages from 'vite-plugin-pages'
 import path from 'path'
+import vueJsx from "@vitejs/plugin-vue-jsx";
 console.log("process.envvvvvv",process.env)
 import { viteMockServe } from 'vite-plugin-mock';
 // https://vitejs.dev/config/
@@ -17,6 +18,9 @@ export default defineConfig({
     }
   },
   plugins: [
+    vueJsx({
+      transformOn: true
+    }),
     vue({
     include: [/\.vue$/, /\.md$/],
     reactivityTransform: true,}),
