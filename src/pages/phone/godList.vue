@@ -29,6 +29,7 @@
 <script setup>
 import Api from "~/api"
 import { useImgStore } from "~/store"
+// import { imgState } from "~/store/little"
 useHead({
   title: "goodlist",
   meta: [{ name: "description", content: "goodlistcontent" }],

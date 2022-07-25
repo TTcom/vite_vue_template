@@ -12,6 +12,24 @@ console.log("process.envvvvvv",process.env)
 import { viteMockServe } from 'vite-plugin-mock';
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    lib: {
+      entry:  'package/index.js', // 设置入口文件
+      name: 'vite-lib', // 起个名字，安装、引入用
+      fileName: (format) => `vite-lib.${format}.js` // 打包后的文件名
+    },
+    sourcemap: true, // 输出.map文件
+    // rollupOptions: {
+    //   // 确保外部化处理那些你不想打包进库的依赖
+    //   external: ['vue', 'ant-design-vue'],
+    //   output: {
+    //     // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
+    //     globals: {
+    //       vue: 'Vue'
+    //     }
+    //   }
+    // }
+  },
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`, // 设置 `~` 指向 `src` 目录
@@ -51,9 +69,9 @@ export default defineConfig({
       imports: ['vue','vue-router','@vueuse/head'] 
     })
   ],
-  build:{
-    target:['edge90','chrome90','firefox90','safari15']
-  },
+  // build:{
+  //   target:['edge90','chrome90','firefox90','safari15']
+  // },
   // base: process.env.VUE_APP_LOCAL_ENV === "true" ? './' : "/servename/", // 设置打包路径
   // base: './', // 设置打包路径
   server: {

@@ -40,6 +40,7 @@
 </template>
 
 <script setup>
+// import { imgState } from "~/store/little"
 import { useImgStore } from "~/store"
 const imgState = useImgStore()
 console.log("IIIIIIIIIIIII", imgState.imgArrIndex)
