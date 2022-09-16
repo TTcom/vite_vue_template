@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import styleImport, { VantResolve,ElementPlusResolve } from 'vite-plugin-style-import';
-import eslintPlugin from 'vite-plugin-eslint';
+// import eslintPlugin from 'vite-plugin-eslint';
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import {VantResolver,ElementPlusResolver} from 'unplugin-vue-components/resolvers'
@@ -13,12 +13,12 @@ import { viteMockServe } from 'vite-plugin-mock';
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
-    lib: {
-      entry:  'package/index.js', // 设置入口文件
-      name: 'vite-lib', // 起个名字，安装、引入用
-      fileName: (format) => `vite-lib.${format}.js` // 打包后的文件名
-    },
-    sourcemap: true, // 输出.map文件
+    // lib: {
+    //   entry:  'package/index.js', // 设置入口文件
+    //   name: 'vite-lib', // 起个名字，安装、引入用
+    //   fileName: (format) => `vite-lib.${format}.js` // 打包后的文件名
+    // },
+    // sourcemap: true, // 输出.map文件
     // rollupOptions: {
     //   // 确保外部化处理那些你不想打包进库的依赖
     //   external: ['vue', 'ant-design-vue'],
@@ -42,7 +42,7 @@ export default defineConfig({
     vue({
     include: [/\.vue$/, /\.md$/],
     reactivityTransform: true,}),
-    eslintPlugin({fix:true}),
+    // eslintPlugin({fix:true}),
     styleImport({
       resolves: [ElementPlusResolve(),VantResolve()],
     }),

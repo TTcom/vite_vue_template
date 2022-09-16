@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@braks/vue-flow": "^0.4.40",
     "@formkit/auto-animate": "^1.0.0-beta.1",
     "@vueuse/core": "^8.2.5",
     "@vueuse/head": "^0.7.6",

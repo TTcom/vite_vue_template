@@ -16,7 +16,11 @@ import "swiper/css/pagination"
 import "swiper/css/navigation"
 import * as ElementPlusIconsVue from "@element-plus/icons-vue"
 // import plugin from "../package/index" //导出自定义demo
+/* import the required styles */
+import "@braks/vue-flow/dist/style.css"
 
+/* import the default theme (optional) */
+import "@braks/vue-flow/dist/theme-default.css"
 console.log("AA", routes)
 const app = createApp(App)
 const head = createHead()

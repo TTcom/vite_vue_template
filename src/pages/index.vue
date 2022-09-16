@@ -1,7 +1,7 @@
 <template>
   <div class="index">
-    <demo></demo>
-    <demo2></demo2>
+    <!-- <demo></demo>
+    <demo2></demo2> -->
     <el-button v-for="(item, index) in data" :key="index" @click="toPage(item)" :type="item.type" round>{{ item.text }}</el-button>
   </div>
 </template>
@@ -12,13 +12,14 @@
 }
 </route>
 <script setup>
-import { demo, demo2 } from "../../dist/vite-lib.es"
+// import { demo, demo2 } from "../../dist/vite-lib.es"
 // import {TestA} from '../../dist/vite-lib.umd' // 二者
 useHead({
   title: "index",
   meta: [{ name: "description", content: "indexpage" }],
 })
 let data = [
+  { text: "前往vue-flow", url: "/pc/vueflow", type: "primary" },
   { text: "前往移动端H5模板", url: "/phone/godList", type: "" },
   { text: "前往PC端animation模板", url: "/pc/animation", type: "primary" },
   { text: "前往PC端motion和swiper模板", url: "/pc/motion", type: "success" },

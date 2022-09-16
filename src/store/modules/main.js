@@ -5,14 +5,14 @@ export const useImgStore = defineStore("imger", {
     return {
       imgArr: [],
       imgArrIndex: 0,
-      imgUrl:""
+      imgUrl: "",
     }
   },
   // 也可以定义为
   // state: () => ({ count: 0 })
   actions: {
     setImgUrl(src) {
-        this.imgUrl = src
+      this.imgUrl = src
     },
     setImgArr(arr) {
       this.imgArr = arr
@@ -21,12 +21,14 @@ export const useImgStore = defineStore("imger", {
       this.imgArrIndex = index
     },
   },
-   // 开启数据缓存
-   persist: {
+  // 开启数据缓存
+  persist: {
     enabled: true,
-    strategies: [{
-      key: 'imger',
-      storage: localStorage
-     }]
-   }
+    strategies: [
+      {
+        key: "imger",
+        storage: localStorage,
+      },
+    ],
+  },
 })
