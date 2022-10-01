@@ -8,6 +8,7 @@ import {VantResolver,ElementPlusResolver} from 'unplugin-vue-components/resolver
 import Pages from 'vite-plugin-pages'
 import path from 'path'
 import vueJsx from "@vitejs/plugin-vue-jsx";
+import Unocss from 'unocss/vite'
 console.log("process.envvvvvv",process.env)
 import { viteMockServe } from 'vite-plugin-mock';
 // https://vitejs.dev/config/
@@ -67,6 +68,9 @@ export default defineConfig({
     }),
     AutoImport({ 
       imports: ['vue','vue-router','@vueuse/head'] 
+    }),
+    Unocss({
+      // mode : 'shadow-dom'
     })
   ],
   // build:{

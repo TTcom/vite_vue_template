@@ -21,6 +21,7 @@ import "@braks/vue-flow/dist/style.css"
 
 /* import the default theme (optional) */
 import "@braks/vue-flow/dist/theme-default.css"
+import 'uno.css'
 console.log("AA", routes)
 const app = createApp(App)
 const head = createHead()
