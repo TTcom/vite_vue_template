@@ -67,7 +67,7 @@
     </script>
     
     <template>
-      <div>Select a color</div>
+      <div>Select a colorsAAAA</div>
       <div
         style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; max-width: 90%; margin: auto; gap: 3px"
       >

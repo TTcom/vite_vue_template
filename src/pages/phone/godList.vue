@@ -1,5 +1,6 @@
 <template>
   <div class="goodList">
+    <Vheader></Vheader>
     <van-card @click="goDetail(index)" v-for="(item, index) in imgState.imgArr" :key="item" :num="number" :price="item.price.toFixed(2)" :title="item.name">
       <template #thumb>
         <div class="index_top">
@@ -29,6 +30,7 @@
 <script setup>
 import Api from "~/api"
 import { useImgStore } from "~/store"
+import Vheader from '~/components/vheader.vue'
 // import { imgState } from "~/store/little"
 useHead({
   title: "goodlist",

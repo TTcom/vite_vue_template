@@ -1,7 +1,8 @@
 <script setup>
-    import { Handle, Position, MiniMap,MarkerType, VueFlow, useVueFlow } from '@braks/vue-flow'
+    import { Background, BackgroundVariant,Handle, Position, MiniMap,MarkerType, VueFlow, useVueFlow } from '@braks/vue-flow'
     import { computed, h, onMounted, ref } from 'vue'
-    import ColorSelectorNode from './CustomNode.vue'
+    import customNode from '~/components/flows/customNode.vue'
+    import Sidebar from '~/components/Sidebar.vue'
     const presets = {
   sumi: '#1C1C1C',
   gofun: '#FFFFFB',
@@ -24,8 +25,33 @@
   beniukon: '#E98B2A',
   sakura: '#FEDFE1',
   toki: '#EEA9A9',
+    }
+    const onDragOver = (event) => {
+      // console.log("onDragOverEEEEEEEEEEEEEEEEEEE",event)
+      event.preventDefault()
+      if (event.dataTransfer) {
+        event.dataTransfer.dropEffect = 'move'
+      }
 }
-    
+
+const onDrop = (event) => {
+  console.log("EEEEEEEEEEEEEEEEEEE",event)
+  // const type = event.dataTransfer?.getData('application/vueflow')
+  // const position = project({ x: event.clientX - 40, y: event.clientY - 18 })
+  // const newNode = {
+  //   id: getId(),
+  //   type,
+  //   position,
+  //   label: `${type} node`,
+  // }
+  // addNodes([newNode])
+}
+const onDragStart = (event, nodeType) => {
+  if (event.dataTransfer) {
+    event.dataTransfer.setData('application/vueflow', nodeType)
+    event.dataTransfer.effectAllowed = 'move'
+  }
+}
     const { getNode,onConnect,addEdges } = useVueFlow()
     onConnect((params) => {
       params.animated = true
@@ -137,14 +163,18 @@
       ]
     })
 </script>
-
     <template>
-      <VueFlow
+      
+      <div flex class="h-100%"  @drop="onDrop">
+
+        <Sidebar />
+        <VueFlow
         v-model="elements"
         class="customnodeflow"
+        @dragover="onDragOver"
       >
         <template #node-custom="props">
-          <ColorSelectorNode :data="props.data" @change="onChange" @gradient="onGradient" />
+          <customNode :data="props.data" @change="onChange" @gradient="onGradient" />
         </template>
         <template #node-special="props">
            <div w-200px h-100px text-center class="bg-#81C7D4" rounded-10px>
@@ -152,9 +182,12 @@
             <Handle id="a" type="source" animated="true" :position="Position.Left" />
            </div>
         </template>
-    
+        <Background :variant="BackgroundVariant.Dots" pattern-color="#d87070" gap="18" />
         <MiniMap :node-stroke-color="nodeStroke" :node-color="nodeColor" />
       </VueFlow>
+      </div>  
+
+
     </template>
        <style>
         marker[id='id=marker-success&type=arrow'] polyline {
