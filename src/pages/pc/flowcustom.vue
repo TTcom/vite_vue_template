@@ -26,33 +26,32 @@
   sakura: '#FEDFE1',
   toki: '#EEA9A9',
     }
+    const { getNode,onConnect,addEdges,project, addNodes, } = useVueFlow()
     const onDragOver = (event) => {
       // console.log("onDragOverEEEEEEEEEEEEEEEEEEE",event)
       event.preventDefault()
       if (event.dataTransfer) {
         event.dataTransfer.dropEffect = 'move'
       }
+    }
+    const onNodeClick = (event) => {
+      console.log("onClickEEEEEEEEEEEEEEEEEEE",event)
+    }
+    let id = 3
+    const getId = () => `dndnode_${id++}`
+const onDrop = (event) => {
+  console.log("onDropPPPPPPP",event)
+  const type = event.dataTransfer?.getData('application/vueflow')
+  const position = project({ x: event.offsetX, y: event.offsetY})
+  const newNode = {
+    id: getId(),
+    type,
+    position,
+    label: `${type} node`,
+  }
+  addNodes([newNode])
 }
 
-const onDrop = (event) => {
-  console.log("EEEEEEEEEEEEEEEEEEE",event)
-  // const type = event.dataTransfer?.getData('application/vueflow')
-  // const position = project({ x: event.clientX - 40, y: event.clientY - 18 })
-  // const newNode = {
-  //   id: getId(),
-  //   type,
-  //   position,
-  //   label: `${type} node`,
-  // }
-  // addNodes([newNode])
-}
-const onDragStart = (event, nodeType) => {
-  if (event.dataTransfer) {
-    event.dataTransfer.setData('application/vueflow', nodeType)
-    event.dataTransfer.effectAllowed = 'move'
-  }
-}
-    const { getNode,onConnect,addEdges } = useVueFlow()
     onConnect((params) => {
       params.animated = true
       // params.markerEnd = MarkerType.ArrowClosed
@@ -90,9 +89,6 @@ const onDragStart = (event, nodeType) => {
       return '#fff'
     }
     
-    // output labels
-    const outputColorLabel = () => h('div', {}, bgColor.value)
-    const outputNameLabel = () => h('div', {}, bgName.value)
     
     const onChange = (color) => {
       gradient.value = false
@@ -119,59 +115,22 @@ const onDragStart = (event, nodeType) => {
           position: { x: 0, y: 50 },
         },
         {
-              id: '2',
-              label: 'Node 1',
-              type: 'special',
-              position: { x: 350, y: 50 },
-         },
-        // {
-        //   id: '2',
-        //   type: 'output',
-        //   label: outputNameLabel,
-        //   position: { x: 350, y: 25 },
-        //   targetPosition: Position.Left,
-        // },
-        // {
-        //   id: '3',
-        //   type: 'output',
-        //   label: outputColorLabel,
-        //   position: { x: 350, y: 200 },
-        //   targetPosition: Position.Left,
-        // },
-        // {
-        //   id: 'e1a-2',
-        //   source: '1',
-        //   sourceHandle: 'a',
-        //   target: '2',
-        //   animated: true,
-        //   style: () => ({
-        //     stroke: bgColor.value,
-        //     filter: 'invert(100%)',
-        //   }),
-        // },
-        // {
-        //   id: 'e1b-3',
-        //   source: '1',
-        //   sourceHandle: 'b',
-        //   target: '3',
-        //   animated: true,
-        //   style: () => ({
-        //     stroke: bgColor.value,
-        //     filter: 'invert(100%)',
-        //   }),
-        // },
+          id: '2',
+          label: 'Node 1',
+          type: 'special',
+          position: { x: 350, y: 50 },
+         }
       ]
     })
 </script>
     <template>
-      
       <div flex class="h-100%"  @drop="onDrop">
-
         <Sidebar />
         <VueFlow
         v-model="elements"
         class="customnodeflow"
         @dragover="onDragOver"
+        @nodeClick="onNodeClick"
       >
         <template #node-custom="props">
           <customNode :data="props.data" @change="onChange" @gradient="onGradient" />
@@ -186,12 +145,10 @@ const onDragStart = (event, nodeType) => {
         <MiniMap :node-stroke-color="nodeStroke" :node-color="nodeColor" />
       </VueFlow>
       </div>  
-
-
     </template>
-       <style>
-        marker[id='id=marker-success&type=arrow'] polyline {
-         stroke: green;
-        }
-       </style>
+    <style>
+    marker[id='id=marker-success&type=arrow'] polyline {
+      stroke: green;
+    }
+    </style>
     

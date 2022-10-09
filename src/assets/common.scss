@@ -43,3 +43,7 @@ body,
 // [data-starport-proxy]:not([data-starport-landed]) {
 //   background: #8005;
 // }
+.vue-flow__node-special.selected, .vue-flow__node-special.selected:hover {
+  border-radius: 10px;
+  border: 2px solid black;
+}
