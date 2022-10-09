@@ -26,7 +26,7 @@
   sakura: '#FEDFE1',
   toki: '#EEA9A9',
     }
-    const { getNode,onConnect,addEdges,project, addNodes, } = useVueFlow()
+    const { getNode,onConnect,addEdges,project, addNodes,removeNodes } = useVueFlow()
     const onDragOver = (event) => {
       // console.log("onDragOverEEEEEEEEEEEEEEEEEEE",event)
       event.preventDefault()
@@ -52,6 +52,10 @@ const onDrop = (event) => {
   addNodes([newNode])
 }
 
+const deleteNode = (props)=>{
+     console.log(props)
+     removeNodes([props.id])
+}
     onConnect((params) => {
       params.animated = true
       // params.markerEnd = MarkerType.ArrowClosed
@@ -61,7 +65,7 @@ const onDrop = (event) => {
       },
       params.style= () => ({
              stroke: "green",
-             strokeWidth: "3"
+             strokeWidth: "5"
       })
       addEdges([params])
    }) 
@@ -139,6 +143,9 @@ const onDrop = (event) => {
            <div w-200px h-100px text-center class="bg-#81C7D4" rounded-10px>
             specialDiv
             <Handle id="a" type="source" animated="true" :position="Position.Left" />
+           </div>
+           <div absolute text-center class="nodeBtn" @click="deleteNode(props)">
+            删除
            </div>
         </template>
         <Background :variant="BackgroundVariant.Dots" pattern-color="#d87070" gap="18" />

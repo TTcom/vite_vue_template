@@ -47,3 +47,18 @@ body,
   border-radius: 10px;
   border: 2px solid black;
 }
+.nodeBtn{
+  background: black;
+  color: white;
+  z-index: -1;
+  bottom: 8px;
+  border-radius: 5px;
+  padding: 5px 9px;
+  transition: all .3s;
+}
+.vue-flow__node-special.selected .nodeBtn{
+  transform: translateY(40px);
+}
+.vue-flow__edge.selected .vue-flow__edge-path {
+  stroke: rgb(238, 204, 11) !important;
+}
